@@ -1,0 +1,8 @@
+<beans>
+
+    <bean id="u" class="org.wg.dao.impl.UserDAOImpl"/>
+    <bean id="userService" class="org.wg.service.UserService">
+        <property name="userDAO" bean="u"/>
+    </bean>
+
+</beans>
