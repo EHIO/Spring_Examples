@@ -10,8 +10,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>4.3.9.RELEASE</spring.version>
-        <jetty.port>8083</jetty.port>
+        <spring.version>5.0.0.RELEASE</spring.version>
     </properties>
 
     <build>
@@ -61,6 +60,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!--日志适配器-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
         </dependency>
     </dependencies>
 </project>

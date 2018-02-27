@@ -1,7 +1,13 @@
 package org.wg;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 注解方式的Job
@@ -9,7 +15,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AnnotationModeJob {
 
-    /*
+    static final Logger logger = LoggerFactory.getLogger(AnnotationModeJob.class);
+
+    /**
         cronExpression的配置说明，具体使用以及参数请百度google
         字段   允许值   允许的特殊字符
         秒    0-59    , - * /
@@ -36,9 +44,22 @@ public class AnnotationModeJob {
         "0 10,44 14 ? 3 WED"    三月的每周三的14：10和14：44触发
         "0 15 10 ? * MON-FRI"    每个周一、周二、周三、周四、周五的10：15触发
      */
-    @Scheduled(cron = "5 * * * * ?")
+
+//    @Scheduled(cron = "5 * * * * ?")
+    /***
+     * 每隔5秒执行
+     */
+    @Scheduled(cron = "*/5 * * * * ?")
     public void run() {
-        System.err.println("6666666666666");
-        System.err.println(System.currentTimeMillis() + " run ...");
+        logger.info("============ run");
+    }
+
+
+    /***
+     * 每隔1分钟执行一次
+     */
+    @Scheduled(cron = "0 0/1 * * * ?")
+    public void run2() {
+        logger.info("============ run2");
     }
 }
