@@ -45,7 +45,7 @@ public class AnnotationModeJob {
         "0 15 10 ? * MON-FRI"    每个周一、周二、周三、周四、周五的10：15触发
      */
 
-//    @Scheduled(cron = "5 * * * * ?")
+
     /***
      * 每隔5秒执行
      */
@@ -61,5 +61,13 @@ public class AnnotationModeJob {
     @Scheduled(cron = "0 0/1 * * * ?")
     public void run2() {
         logger.info("============ run2");
+    }
+
+    /***
+     * 每分钟的第5秒执行
+     */
+    @Scheduled(cron = "5 * * * * ?")
+    public void run3() {
+        logger.info("============ run3");
     }
 }
