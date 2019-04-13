@@ -1,11 +1,21 @@
 package org.wg;
 
-/**
- * Created by run on 2017/6/15.
- */
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@EnableAutoConfiguration
 public class SpringHelloWorld {
 
-    public void hello() {
-        System.out.println("hello");
+    @RequestMapping("/")
+    public String hello() {
+        System.out.println("hello Spring");
+        return "hello Spring";
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringHelloWorld.class, args);
     }
 }
