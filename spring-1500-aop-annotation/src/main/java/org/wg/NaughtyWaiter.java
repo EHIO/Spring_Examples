@@ -6,11 +6,12 @@ import org.wg.anno.NeedTest;
 @Component
 public class NaughtyWaiter implements Waiter {
 
-	@NeedTest
+
 	public void greetTo(String clientName) {
 		System.out.println("NaughtyWaiter:greet to " + clientName + "...");
 	}
 
+	@NeedTest
 	public void serveTo(String clientName) {
 		System.out.println("NaughtyWaiter:serving " + clientName + "...");
 	}

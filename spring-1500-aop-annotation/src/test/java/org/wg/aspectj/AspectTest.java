@@ -22,9 +22,11 @@ public class AspectTest {
     public void pointcut() throws Exception {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 
-        Waiter waiter = (Waiter) ctx.getBean("naughtyWaiter");
-        System.out.println(waiter.getClass());
-        waiter.greetTo("John");
-        waiter.serveTo("Tom");
+        Waiter naughtyWaiter = (Waiter) ctx.getBean("naughtyWaiter");
+        Waiter naiveWaiter = (Waiter) ctx.getBean("naiveWaiter");
+        // 该方法被织入增强
+        naughtyWaiter.serveTo("John");
+        // 该方法未被织入增强
+        naiveWaiter.serveTo("Tom");
     }
 }
